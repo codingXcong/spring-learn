@@ -6,14 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springmvc-hellowold" />
-        <module name="springmvc-helloworld" />
         <module name="springmvc-ssm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="springmvc-hellowold" target="1.8" />
-      <module name="springmvc-helloworld" target="1.8" />
       <module name="springmvc-ssm" target="1.5" />
     </bytecodeTargetLevel>
   </component>
