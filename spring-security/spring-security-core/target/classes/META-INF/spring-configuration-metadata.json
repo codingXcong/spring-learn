@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "properties": [
+    {
+      "sourceType": "cn.zgc.spring.security.core.properties.SecurityProperties",
+      "name": "my.security.browser",
+      "type": "cn.zgc.spring.security.core.properties.BrowserProperties"
+    }
+  ],
+  "groups": [
+    {
+      "sourceType": "cn.zgc.spring.security.core.properties.SecurityProperties",
+      "name": "my.security",
+      "type": "cn.zgc.spring.security.core.properties.SecurityProperties"
+    }
+  ]
+}
