@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zgc.springtrans.mapper.AcctMapper">
+    <update id="transIn">
+        update acct set balance = balance + #{balance}
+        <where>
+            acct_name = #{acctName}
+        </where>
+    </update>
+
+    <update id="transOut">
+        update acct set balance = balance - #{balance}
+        <where>
+            acct_name = #{acctName}
+        </where>
+    </update>
+</mapper>
