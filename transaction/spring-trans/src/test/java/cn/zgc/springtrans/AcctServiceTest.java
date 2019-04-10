@@ -2,6 +2,8 @@ package cn.zgc.springtrans;
 
 import cn.zgc.springtrans.mapper.domain.Acct;
 import cn.zgc.springtrans.service.AcctService;
+import cn.zgc.springtrans.service.MutiAcctService;
+import cn.zgc.springtrans.service.TransferRequest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,30 @@ import java.io.IOException;
 public class AcctServiceTest {
     @Autowired
     private AcctService acctService;
+    @Autowired
+    private MutiAcctService mutiAcctService;
+
     @Test
     public void testTransfer() throws IOException {
-        Acct in = new Acct("tom",100);
-        Acct out = new Acct("jerry",100);
-        acctService.transfer(in,out);
+        TransferRequest req = new TransferRequest("jerry","tom",600);
+        acctService.transfer(req);
+    }
+
+    @Test
+    public void testTransferNoRollback() throws IOException {
+        TransferRequest req = new TransferRequest("jerry","tom",600);
+        acctService.transferNoRollback(req);
+    }
+
+    @Test
+    public void testBatchTransfer() throws IOException {
+        TransferRequest req = new TransferRequest("jerry","tom",101);
+        acctService.batchTransfer(req);
+    }
+
+    @Test
+    public void testBatchTransfer_传播机制生效() throws IOException {
+        TransferRequest req = new TransferRequest("jerry","tom",101);
+        mutiAcctService.batchTransfer(req);
     }
 }

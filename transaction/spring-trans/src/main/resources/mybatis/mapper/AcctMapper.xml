@@ -15,4 +15,12 @@
             acct_name = #{acctName}
         </where>
     </update>
+
+    <select id="selectBalance" parameterType="string" resultType="long">
+        select balance from acct where acct_name = #{acctName}
+    </select>
+
+    <insert id="insert">
+        insert into acct values (null,#{acctName},#{balance})
+    </insert>
 </mapper>
